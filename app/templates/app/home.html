@@ -1,25 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-</head>
-<body>
+  </head>
+  <body>
     {% csrf_token %}
-    <strong>hello {{ title }}</strong><hr>
-<!-- {{ post_response }}<br>{{ comment_response }}<br>{{ length2 }} -->
+    <strong>hello {{ title }}</strong>
+    <hr />
 
-{% for i in  %}
-{{ i }}
-{% endfor%}
-
-
-
-
-
-
-    
-</body>
+    {% for single_response in response %}
+    <div style="margin-bottom: 1rem;">
+      <div>{{ single_response.id }}</div>
+      <div>{{ single_response.title }}</div>
+      {% if single_response.comments|length %}
+      <div>Comments:</div>
+      <div style="margin-left: 1rem">
+        {% for single_comment in single_response.comments %}
+            <div>{{ single_comment.body }}</div>
+        {% endfor %}
+      </div>
+      {% endif %}
+    </div>
+    {% endfor %}
+  </body>
 </html>

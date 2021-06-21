@@ -1,7 +1,9 @@
 # api
 
 Check this page https://my-json-server.typicode.com/typicode/demo
+
 Here you will find two api’s one for posts and comments 
+
 https://my-json-server.typicode.com/typicode/demo/posts
 https://my-json-server.typicode.com/typicode/demo/comments
 
